@@ -10,4 +10,10 @@ export default class Cube {
 
         this.object = cube
     }
+
+    update() {
+        this.object.rotation.x += 0.02
+        this.object.rotation.y += 0.02
+        this.object.rotation.z += 0.02
+    }
 }

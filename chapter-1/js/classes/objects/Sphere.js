@@ -10,4 +10,9 @@ export default class Sphere {
         
         this.object = sphere
     }
+
+    update({step}) {
+        this.object.position.x = 20 + 10 * Math.cos(step)
+        this.object.position.y = 2 + 10 * Math.abs(Math.sin(step))
+    }
 }

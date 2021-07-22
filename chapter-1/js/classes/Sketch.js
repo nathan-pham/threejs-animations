@@ -2,7 +2,7 @@ import * as THREE from "https://esm.sh/three"
 import {OrbitControls} from "https://esm.sh/three/examples/jsm/controls/OrbitControls"
 
 export default class Sketch {
-    time = 0
+    step = 0
     objects = []
 
     constructor({container=document.body, controls}={}) {
@@ -74,7 +74,7 @@ export default class Sketch {
     }
 
     render() {
-        this.time += 0.01
+        this.step += 0.01
         this.renderer.render(this.scene, this.camera)
 
         for(const object of this.objects) {
