@@ -3,10 +3,12 @@ import * as THREE from "https://esm.sh/three"
 export default class Cube {
     constructor() {
         this.geometry = new THREE.BoxGeometry(4, 4, 4)
-        this.material = new THREE.MeshBasicMaterial({color: 0xFF0000, wireframe: true})
+        this.material = new THREE.MeshLambertMaterial({color: 0xFF0000})
 
         const cube = new THREE.Mesh(this.geometry, this.material)
         cube.position.set(-4, 3, 0)
+        cube.receiveShadow = true
+        cube.castShadow = true
 
         this.object = cube
     }
