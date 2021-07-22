@@ -51,7 +51,8 @@ export default class Sketch {
         const far = 1000
 
         this.camera = new THREE.PerspectiveCamera(fov, this.aspect, near, far)
-        this.camera.position.z = 3
+        this.camera.position.set(-30, 40, 30)
+        this.camera.lookAt(this.scene.position)
     }
     
     createRenderer() {
