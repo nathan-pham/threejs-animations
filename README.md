@@ -5,3 +5,4 @@ Notes adapted from __Learn Three.js: Programming 3D Animations and Visualization
 
 ## Chapters
 - `chapter-1`: First Three.js Scene
+- `chapter-2`: Basic Three.js Application Components
