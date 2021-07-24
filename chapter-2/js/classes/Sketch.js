@@ -5,6 +5,9 @@ export default class Sketch {
     step = 0
     objects = []
 
+    // remove object: object instance of THREE.Mesh ? this.scene.remove(object)
+    // find object: this.scene.getObjectByName(name)
+
     constructor({container=document.body, controls}={}) {
         this.container = typeof container == "string" ? document.querySelector(container) : container
         this.dimensions = {width: this.container.offsetWidth, height: this.container.offsetHeight}
@@ -42,6 +45,8 @@ export default class Sketch {
 
     createScene() {
         this.scene = new THREE.Scene()
+        this.scene.fog = new THREE.FogExp2(0xffffff, 0.01) 
+        // linear fog: new THREE.Fog(color, near, far)
         this.scene.background = new THREE.Color(0x000000)
     }
 
