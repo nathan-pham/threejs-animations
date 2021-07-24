@@ -1,17 +1,32 @@
 import Sketch from "./classes/Sketch.js"
-import Plane from "../../chapter-1/js/classes/objects/Plane.js"
+
 import DirectionalLight from "../../chapter-1/js/classes/objects/Light.js"
-import AmbientLight from "./classes/objects/AmbientLight.js"
-import SpotLight from "./classes/objects/SpotLight.js"
+import AmbientLight from "./classes/objects/lights/AmbientLight.js"
+import SpotLight from "./classes/objects/lights/SpotLight.js"
 
-const sketch = new Sketch({container: "#webgl__container", controls: true})
+import Plane from "../../chapter-1/js/classes/objects/Plane.js"
+import Cube from "./classes/objects/Cube.js"
 
-sketch.add(
-    new DirectionalLight(),
-    new AmbientLight(),
-    new SpotLight(),
-    
-    new Plane()
-)
+const modeCubes = () => {
+    const sketch = new Sketch({container: "#webgl__container", controls: true})
+    const plane = new Plane()
 
-sketch.render()
+    const cubes = []
+    for(let i = 0; i < 40; i++){
+        cubes.push(new Cube({spawn: plane.geometry.parameters}))
+    }
+
+    sketch.add(
+        new DirectionalLight(),
+        new AmbientLight(),
+        new SpotLight(),
+        
+        ...cubes,
+        plane
+    )
+
+
+    sketch.render()
+}
+
+modeCubes()
