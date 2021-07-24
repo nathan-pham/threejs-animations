@@ -14,6 +14,10 @@ export default class Cube {
         ] 
         
         const cube = SceneUtils.createMultiMaterialObject(this.geometry, this.materials)
+        cube.children.forEach(child => {
+            child.receiveShadow = true
+            child.castShadow = true
+        })
         // cube.receiveShadow = true
         // cube.castShadow = true
         cube.position.set(
